@@ -120,7 +120,7 @@
     font-family: &quot;Raleway&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
     }
     .logo {
-			font-size: 60px;
+			font-size: 36px;
 			font-family: &quot;Fredericka the great&quot;, cursive;
 	}
     @font-face {
@@ -186,8 +186,7 @@
     }
     @media (min-width: 768px) {
     .nav {
-    float: right;
-    margin-top: 37px;
+    margin-top: 20px;
     }
     }
     @media (max-width: 768px) {
@@ -196,7 +195,7 @@
     float: none;
     display: table !important;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
     }
     .nav {
     margin-bottom: 15px;
@@ -224,35 +223,38 @@
     h1.postTitle {
     color: #2196F3;
     }
+    .navBar {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
     </style>
   </head>
   <body>
     <div class='content'>
-      <div>
+      <div class="navBar">
         <div class='row header blogHeader'>
-          <div class='col-sm-6'>
+          <div class='col-xs-12 col-sm-6 col-md-5 col-md-offset-1'>
             <span class='logo'>
               <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>
             </span>
           </div>
-          <div class='col-sm-6'>
-            <!-- <ul class='nav nav-pills'>
+          <div class='col-xs-12 col-sm-6 col-md-3 col-md-offset-3'>
+            <ul class='nav nav-pills'>
               &lt;li class=&quot;<b:if cond='data:blog.url == data:blog.homepageUrl'>active</b:if>&quot;&gt;
 				<a expr:href='data:blog.homepageUrl'>
-                  How to
+                  Home
                 </a>
               &lt;/li&gt;
               &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;Github&quot;'>active</b:if>&quot;&gt;
-                <a href='/p/github.html'>
-                  Get it
+                <a href='/p/resume.htm'>
+                  Hire Me!
                 </a>
               &lt;/li&gt;
-    		  &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;About&quot;'>active</b:if>&quot;&gt;
+    		  <!-- &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;About&quot;'>active</b:if>&quot;&gt;
                 <a href='/p/about.html'>
                   About
                 </a>
-              &lt;/li&gt;
-            </ul> -->
+              &lt;/li&gt; -->
+            </ul>
           </div>
         </div>
       </div>
