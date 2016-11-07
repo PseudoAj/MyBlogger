@@ -226,6 +226,25 @@
     .navBar {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
+    .postCard {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    }
+    .postCard:hover {
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+    }
+    .postTitle {
+    background-color: #FFF;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    }
     </style>
   </head>
   <body>
@@ -260,7 +279,7 @@
       </div>
       <div class='container'>
         <div class='row main blogContainer'>
-          <div class='col-sm-12'>
+          <div class='col-xs-12 col-sm-12 col-md-12'>
             <b:section id='post'>
               <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
                 <b:includable id='main' var='post'>
