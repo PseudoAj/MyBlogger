@@ -258,12 +258,7 @@
     width: 100%;
     }
     .blogFooter {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: #FFF;
-    border-style: solid;
-    border-bottom-width: 10px;
-    border-top-width: 0px;
-    border-bottom-color: #2196F3;
     height: 70px;
     margin-top: -70px;
     }
@@ -274,41 +269,45 @@
     text-align: center;
     border-radius: 0px;
     }
-
+    .postImage img {
+    width: 100%;
+    }
     </style>
   </head>
   <body>
     <div class='content'>
-      <div class="navBar">
-        <div class='row header blogHeader'>
-          <div class='col-xs-12 col-sm-6 col-md-5 col-md-offset-1'>
-            <span class='logo'>
-              <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>
-            </span>
-          </div>
-          <div class='col-xs-12 col-sm-6 col-md-3 col-md-offset-3'>
-            <ul class='nav nav-pills'>
-              &lt;li class=&quot;<b:if cond='data:blog.url == data:blog.homepageUrl'>active</b:if>&quot;&gt;
-				<a expr:href='data:blog.homepageUrl'>
-                  Home
-                </a>
-              &lt;/li&gt;
-              &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;Github&quot;'>active</b:if>&quot;&gt;
-                <a href='/p/resume.htm'>
-                  Hire Me!
-                </a>
-              &lt;/li&gt;
-    		  <!-- &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;About&quot;'>active</b:if>&quot;&gt;
-                <a href='/p/about.html'>
-                  About
-                </a>
-              &lt;/li&gt; -->
-            </ul>
+      <div class="container-fluid">
+        <div class="navBar">
+          <div class='row header blogHeader'>
+            <div class='col-xs-12 col-sm-6 col-md-5 col-md-offset-1'>
+              <span class='logo'>
+                <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+              </span>
+            </div>
+            <div class='col-xs-12 col-sm-6 col-md-3 col-md-offset-3'>
+              <ul class='nav nav-pills'>
+                &lt;li class=&quot;<b:if cond='data:blog.url == data:blog.homepageUrl'>active</b:if>&quot;&gt;
+  				<a expr:href='data:blog.homepageUrl'>
+                    Home
+                  </a>
+                &lt;/li&gt;
+                &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;Github&quot;'>active</b:if>&quot;&gt;
+                  <a href='/p/resume.htm'>
+                    Hire Me!
+                  </a>
+                &lt;/li&gt;
+      		  <!-- &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;About&quot;'>active</b:if>&quot;&gt;
+                  <a href='/p/about.html'>
+                    About
+                  </a>
+                &lt;/li&gt; -->
+              </ul>
+            </div>
           </div>
         </div>
       </div>
       <b:if cond='data:blog.pageType == &quot;index&quot;'>
-        <div class="container homePageHeader">
+        <div class="container-fluid homePageHeader">
           <div class="jumbotron">
             <h1>Hey, I am Ajay Kavuri!</h1>
             <p>Master's student here at West Virginia University.</p>
@@ -372,23 +371,49 @@
                 <b:includable id='postQuickEdit'/>
                 <b:includable id='postlist' var='post'>
                   <b:loop values='data:posts' var='post'>
-                    <div class="postCard">
-                      <div class = "postImage">
-                        <img expr:src='data:post.thumbnailUrl'/>
-                      </div>
-                      <div class = "postDesc">
-                        <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
-                        <b:loop values='data:post.labels' var='label'>
-                          <p><data:label.name/></p>
-                        </b:loop>
-                        <span class='timestamp'><data:post.timestamp/></span>
-                        <span class='timestamp'>Posted by <data:post.author/></span>
-                        <!-- <div class='scissorstable'>
-                          <span class='beforescissors'/>
-                          <span class='fa fa-cut'/>
-                          <span class='afterscissors'/>
-                        </div> -->
-                      </div>
+                    <div class="postCard col-xs-12 col-sm-12 col-md-12">
+                      <b:if cond='data:post.thumbnailUrl'>
+                        <div class = "postImage col-xs-4 col-sm-4 col-md-4">
+                          <img expr:src='data:post.thumbnailUrl'/>
+                        </div>
+                        <div class = "postDesc col-xs-8 col-sm-8 col-md-8">
+                          <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
+                          <p><b:if cond='data:post.snippet'><data:post.snippet/></b:if></p>
+                          <b:if cond='data:post.labels'>
+                            <span class='label' style="color: #2196F3"><data:postLabelsLabel/></span>
+                            <b:loop values='data:post.labels' var='label'>
+                              <a class='label label-info' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
+                            </b:loop>
+                            <br/>
+                          </b:if>
+                          <span class='timestamp'><data:post.timestamp/></span>
+                          <span class='timestamp'>Posted by <data:post.author/></span>
+                          <!-- <div class='scissorstable'>
+                            <span class='beforescissors'/>
+                            <span class='fa fa-cut'/>
+                            <span class='afterscissors'/>
+                          </div> -->
+                        </div>
+                        <b:else />
+                        <div class = "postDesc col-xs-12 col-sm-12 col-md-12">
+                          <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
+                          <p><b:if cond='data:post.snippet'><data:post.snippet/></b:if></p>
+                          <b:if cond='data:post.labels'>
+                            <span class='label' style="color: #2196F3"><data:postLabelsLabel/></span>
+                            <b:loop values='data:post.labels' var='label'>
+                              <a class='label label-info' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
+                            </b:loop>
+                            <br/>
+                          </b:if>
+                          <span class='timestamp'><data:post.timestamp/></span>
+                          <span class='timestamp'>Posted by <data:post.author/></span>
+                          <!-- <div class='scissorstable'>
+                            <span class='beforescissors'/>
+                            <span class='fa fa-cut'/>
+                            <span class='afterscissors'/>
+                          </div> -->
+                        </div>
+                      </b:if>
                     </div>
                   </b:loop>
 				  <div class='row'>
@@ -417,7 +442,7 @@
         </div>
         <div class="navbar-fixed-bottom blogFooter">
           <div class='row footer'>
-            Footer stuff. Responsiraptor theme by <a href='http://catchmecode.com'>Jonas</a>.
+            All rights reserved. Yes, every one of them!!
           </div>
         </div>
       </div>
