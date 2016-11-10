@@ -265,12 +265,23 @@
     .homePageHeader {
     width: 100%;
     margin-top: 25px;
-    color: #2196F3;
+    color: #FFF;
     text-align: center;
     border-radius: 0px;
+    background-color: #2196F3;
+    margin-top: 0px;
     }
     .postImage img {
     width: 100%;
+    }
+    .jumbotron {
+    background-color: transparent !important;
+    }
+    .postHeader{
+    background-color: #2196F3;
+    margin-top: -0px;
+    color: #FFF;
+    margin-bottom: 20px;
     }
     </style>
   </head>
@@ -309,8 +320,9 @@
       <b:if cond='data:blog.pageType == &quot;index&quot;'>
         <div class="container-fluid homePageHeader">
           <div class="jumbotron">
-            <h1>Hey, I am Ajay Kavuri!</h1>
-            <p>Master's student here at West Virginia University.</p>
+            <h1>Pseudo as in pseudocode.</h1>
+            <p>I am Ajay Kavuri and I try to document my knowledge here.</p>
+            
           </div>
         </div>
       </b:if>
@@ -348,7 +360,11 @@
                 <b:includable id='nextprev'/>
                 <b:includable id='post' var='post'>
                     <b:loop values='data:posts' var='post'>
-                        <h1 class="postTitle"><data:post.title/></h1>
+                      <div class="container-fluid postHeader">
+                        <div class="jumbotron">
+                          <h1><data:post.title/></h1>
+                        </div>
+                      </div>
                         <data:post.body/>
                         <div class='disqus_thread' id='disqus_thread'/>
                         <script type='text/javascript'>
