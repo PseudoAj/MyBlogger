@@ -244,18 +244,18 @@
     border-top-width: 0px;
     border-bottom-width: 0px;
     border-left-color: #2196F3;
+    margin-bottom: 25px;
     }
     .postCard:hover {
     box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
     }
     .postTitle {
-    background-color: #FFF;
     padding: 20px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
     width: 100%;
+    margin-bottom: 25px;
+    margin-top: 25px;
     }
     .blogFooter {
     background-color: #FFF;
@@ -270,6 +270,7 @@
     border-radius: 0px;
     background-color: #2196F3;
     margin-top: 0px;
+    min-height: 20vh;
     }
     .postImage img {
     width: 100%;
@@ -278,10 +279,10 @@
     background-color: transparent !important;
     }
     .postHeader{
-    background-color: #2196F3;
-    margin-top: -0px;
-    color: #FFF;
-    margin-bottom: 20px;
+    color: #2196F3;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
     }
     </style>
   </head>
@@ -322,7 +323,7 @@
           <div class="jumbotron">
             <h1>Pseudo as in pseudocode.</h1>
             <p>I am Ajay Kavuri and I try to document my knowledge here.</p>
-            
+
           </div>
         </div>
       </b:if>
@@ -361,16 +362,18 @@
                 <b:includable id='post' var='post'>
                     <b:loop values='data:posts' var='post'>
                       <div class="container-fluid postHeader">
-                        <div class="jumbotron">
-                          <h1><data:post.title/></h1>
+                        <div class="postTitle">
+                          <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
                         </div>
                       </div>
+                      <div class="postBody">
                         <data:post.body/>
+                      </div>
                         <div class='disqus_thread' id='disqus_thread'/>
                         <script type='text/javascript'>
 			    <!-- Disqus settings -->
                             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                            var disqus_shortname = &#39;$replace_with_disqus_short_name$#39;; // Required - Replace example with your forum shortname
+                            var disqus_shortname = &#39;pseudoaj&#39;; // Required - Replace example with your forum shortname
                             var disqus_identifier = window.disqus_identifier || &#39;<data:post.url/>&#39;;
 
                             /* * * DON&#39;T EDIT BELOW THIS LINE * * */
@@ -389,7 +392,7 @@
                   <b:loop values='data:posts' var='post'>
                     <div class="postCard col-xs-12 col-sm-12 col-md-12">
                       <b:if cond='data:post.thumbnailUrl'>
-                        <div class = "postImage col-xs-4 col-sm-4 col-md-4">
+                        <div class = "postImage visible-md col-xs-4 col-sm-4 col-md-4">
                           <img expr:src='data:post.thumbnailUrl'/>
                         </div>
                         <div class = "postDesc col-xs-8 col-sm-8 col-md-8">
@@ -474,7 +477,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
 
-      ga(&#39;create&#39;, &#39;$replace_with_GA_id$#39;, &#39;auto&#39;);
+      ga(&#39;create&#39;, &#39;35556182&#39;, &#39;auto&#39;);
       ga(&#39;send&#39;, &#39;pageview&#39;);
 
     </script>
