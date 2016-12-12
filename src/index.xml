@@ -243,18 +243,18 @@
     border-top-width: 0px;
     border-bottom-width: 0px;
     border-left-color: #2196F3;
+    margin-bottom: 25px;
     }
     .postCard:hover {
     box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
     }
     .postTitle {
-    background-color: #FFF;
     padding: 20px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
     width: 100%;
+    margin-bottom: 25px;
+    margin-top: 25px;
     }
     .blogFooter {
     background-color: #1565c0;
@@ -437,7 +437,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
 
-      ga(&#39;create&#39;, &#39;$replace_with_GA_id$#39;, &#39;auto&#39;);
+      ga(&#39;create&#39;, &#39;35556182&#39;, &#39;auto&#39;);
       ga(&#39;send&#39;, &#39;pageview&#39;);
 
     </script>
