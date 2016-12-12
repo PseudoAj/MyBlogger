@@ -224,11 +224,7 @@
     color: #2196F3;
     }
     .navBar {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    border-style: solid;
-    border-top-width: 10px;
-    border-bottom-width: 0px;
-    border-top-color: #2196F3;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
     .postCard {
     padding: 20px;
@@ -272,10 +268,19 @@
     color: #2196F3;
     margin-top: -0px;
     margin-bottom: 20px;
+    text-align: center;
+    word-wrap: break-word;
+    }
+    .pstHdrLne {
+    font-weight: bold;
+    font-size: 48px;
     }
     img{
-    width: 100%;
+    max-width: 100%;
     height: auto;
+    }
+    .postDesc {
+    word-wrap: break-word;
     }
   </style>
   </head>
@@ -296,11 +301,13 @@
                     Home
                   </a>
                 &lt;/li&gt;
+                <!--
                 &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;Github&quot;'> active</b:if>&quot;&gt;
                   <a href='/p/resume.htm'>
                     Profile
                   </a>
                 &lt;/li&gt;
+              -->
               </ul>
             </div>
           </div>
@@ -348,15 +355,16 @@
                   <b:loop values='data:posts' var='post'>
                     <div class="container-fluid postHeader">
                         <div class="jumbotron">
-                          <h1><data:post.title/></h1>
+                          <h2 class="pstHdrLne"><a expr:href='data:post.url'><data:post.title/></a></h2>
                         </div>
                       </div>
+                      <hr/>
                       <p><data:post.body/></p>
                       <div class='disqus_thread' id='disqus_thread'/>
                       <script type='text/javascript'>
                         <!-- Disqus settings -->
                         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                        var disqus_shortname = &#39;$replace_with_disqus_short_name$#39;; // Required - Replace example with your forum shortname
+                        var disqus_shortname = &#39;$disqusId$&#39;; // Required - Replace example with your forum shortname
                         var disqus_identifier = window.disqus_identifier || &#39;<data:post.url/>&#39;;
 
                         /* * * DON&#39;T EDIT BELOW THIS LINE * * */
@@ -420,8 +428,15 @@
           </div>
         </div>
         <div class="navbar-fixed-bottom blogFooter">
-          <div class='row footer'>
-            Built by Ajay Kavuri. Based on Responsiraptor.
+          <div class="container">
+            <div class='row footer'>
+              <div class="col-xs-6 col-sm-6 col-md-6 sign">
+                Built by Ajay Kavuri. Based on Responsiraptor.
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 social">
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -437,7 +452,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
 
-      ga(&#39;create&#39;, &#39;35556182&#39;, &#39;auto&#39;);
+      ga(&#39;create&#39;, &#39;$GA$&#39;, &#39;auto&#39;);
       ga(&#39;send&#39;, &#39;pageview&#39;);
 
     </script>
