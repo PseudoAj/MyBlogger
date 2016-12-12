@@ -1645,7 +1645,7 @@ head.appendChild(script);
   </div>
  <!-- /div wrapper -->
  </div>
-<!-- RODAPÃ‰ -->
+<!-- RODAPÉ -->
   <footer id='footer'>
     <div class='container'>
       <div class='row'>
@@ -1699,7 +1699,7 @@ head.appendChild(script);
         </div>
         <div class='span3' id='menu_footer'>
           <small>
-            Create by <a href='http://arthurassuncao.com'>Arthur AssunÃ§Ã£o</a>
+            Create by <a href='http://arthurassuncao.com'>Arthur Assunção</a>
           </small>
         </div>
       </div>

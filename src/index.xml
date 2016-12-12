@@ -29,9 +29,8 @@
 	<style type='text/css'>
     /*
     -----------------------------------------------
-    Responsiraptor blogger theme.
+    Ajay Kavuri Blogger Theme based on Responsiraptor blogger theme.
     Its open source! You can get it too at:
-
     Demo site: http://responsiratptor.blogspot.com
 
     License: MIT - but I'd also ask you to keep
@@ -93,9 +92,9 @@
     max-width: 900px;
     }
     body {
-    font-weight: 200;
+    font-weight: 100;
     font-size: 24px;
-    line-height: 1.4;
+    line-height: 1.5;
     font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;
     color: #494e55;
     background-color: #EEEEEE;
@@ -117,13 +116,13 @@
     }
     h1 {
     font-weight: bold;
-    line-height: 1.1;
+    line-height: 1.5;
     font-family: &quot;Raleway&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
     }
-    .logo {
+    .logo{
 			font-size: 36px;
 			font-family: &quot;Fredericka the great&quot;, cursive;
-	}
+    }
     @font-face {
     font-family: &#39;Raleway&#39;;
     font-style: normal;
@@ -233,7 +232,7 @@
     }
     .postCard {
     padding: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     background-color: #FFF;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -258,18 +257,10 @@
     width: 100%;
     }
     .blogFooter {
-    background-color: #FFF;
+    background-color: #1565c0;
+    color: #FFF;
     height: 70px;
     margin-top: -70px;
-    }
-    .homePageHeader {
-    width: 100%;
-    margin-top: 25px;
-    color: #FFF;
-    text-align: center;
-    border-radius: 0px;
-    background-color: #2196F3;
-    margin-top: 0px;
     }
     .postImage img {
     width: 100%;
@@ -278,12 +269,15 @@
     background-color: transparent !important;
     }
     .postHeader{
-    background-color: #2196F3;
+    color: #2196F3;
     margin-top: -0px;
-    color: #FFF;
     margin-bottom: 20px;
     }
-    </style>
+    img{
+    width: 100%;
+    height: auto;
+    }
+  </style>
   </head>
   <body>
     <div class='content'>
@@ -297,51 +291,41 @@
             </div>
             <div class='col-xs-12 col-sm-6 col-md-3 col-md-offset-3'>
               <ul class='nav nav-pills'>
-                &lt;li class=&quot;<b:if cond='data:blog.url == data:blog.homepageUrl'>active</b:if>&quot;&gt;
+                &lt;li class=&quot;<b:if cond='data:blog.url == data:blog.homepageUrl'> active</b:if>&quot;&gt;
   				<a expr:href='data:blog.homepageUrl'>
                     Home
                   </a>
                 &lt;/li&gt;
-                &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;Github&quot;'>active</b:if>&quot;&gt;
+                &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;Github&quot;'> active</b:if>&quot;&gt;
                   <a href='/p/resume.htm'>
-                    Hire Me!
+                    Profile
                   </a>
                 &lt;/li&gt;
-      		  <!-- &lt;li class=&quot;<b:if cond='data:blog.pageName == &quot;About&quot;'>active</b:if>&quot;&gt;
-                  <a href='/p/about.html'>
-                    About
-                  </a>
-                &lt;/li&gt; -->
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <b:if cond='data:blog.pageType == &quot;index&quot;'>
-        <div class="container-fluid homePageHeader">
-          <div class="jumbotron">
-            <h1>Pseudo as in pseudocode.</h1>
-            <p>I am Ajay Kavuri and I try to document my knowledge here.</p>
-            
-          </div>
-        </div>
-      </b:if>
+
+      <!-- Each post body -->
       <div class='container'>
         <div class='row main blogContainer'>
           <div class='col-xs-12 col-sm-12 col-md-12'>
             <b:section id='post'>
               <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+
                 <b:includable id='main' var='post'>
-					<b:if cond='data:blog.pageType == &quot;item&quot;'>
-                        <b:include data='post' name='post'/>
-					</b:if>
-                    <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-                        <b:include data='post' name='post'/>
-                    </b:if>
-                    <b:if cond='data:blog.pageType == &quot;index&quot;'>
-					  <b:include data='post' name='postlist'/>
-                    </b:if>
+                  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                    <b:include data='post' name='post'/>
+                  </b:if>
+                  <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+                    <b:include data='post' name='post'/>
+                  </b:if>
+                  <b:if cond='data:blog.pageType == &quot;index&quot;'>
+                    <b:include data='post' name='postlist'/>
+                  </b:if>
                 </b:includable>
+
                 <b:includable id='backlinkDeleteIcon'/>
                 <b:includable id='backlinks'/>
                 <b:includable id='comment-form'/>
@@ -358,92 +342,71 @@
                 <b:includable id='mobile-nextprev'/>
                 <b:includable id='mobile-post' var='post'/>
                 <b:includable id='nextprev'/>
+
+                <!-- Actual Post Content -->
                 <b:includable id='post' var='post'>
-                    <b:loop values='data:posts' var='post'>
-                      <div class="container-fluid postHeader">
+                  <b:loop values='data:posts' var='post'>
+                    <div class="container-fluid postHeader">
                         <div class="jumbotron">
                           <h1><data:post.title/></h1>
                         </div>
                       </div>
-                        <data:post.body/>
-                        <div class='disqus_thread' id='disqus_thread'/>
-                        <script type='text/javascript'>
-			    <!-- Disqus settings -->
-                            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                            var disqus_shortname = &#39;$replace_with_disqus_short_name$#39;; // Required - Replace example with your forum shortname
-                            var disqus_identifier = window.disqus_identifier || &#39;<data:post.url/>&#39;;
+                      <p><data:post.body/></p>
+                      <div class='disqus_thread' id='disqus_thread'/>
+                      <script type='text/javascript'>
+                        <!-- Disqus settings -->
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                        var disqus_shortname = &#39;$replace_with_disqus_short_name$#39;; // Required - Replace example with your forum shortname
+                        var disqus_identifier = window.disqus_identifier || &#39;<data:post.url/>&#39;;
 
-                            /* * * DON&#39;T EDIT BELOW THIS LINE * * */
-                            (function() {
-                                var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
-                                dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
-                                (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
-                            })();
+                        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+                        (function() {
+                          var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+                          dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+                          (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+                        })();
                         </script>
                         <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
                         <a class='dsq-brlink' href='http://disqus.com'>blog comments powered by <span class='logo-disqus'>Disqus</span></a>
                   </b:loop>
                 </b:includable>
+
+                <!-- Posts List -->
                 <b:includable id='postQuickEdit'/>
                 <b:includable id='postlist' var='post'>
                   <b:loop values='data:posts' var='post'>
                     <div class="postCard col-xs-12 col-sm-12 col-md-12">
-                      <b:if cond='data:post.thumbnailUrl'>
-                        <div class = "postImage col-xs-4 col-sm-4 col-md-4">
-                          <img expr:src='data:post.thumbnailUrl'/>
-                        </div>
-                        <div class = "postDesc col-xs-8 col-sm-8 col-md-8">
-                          <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
+                      <!-- Post Contents -->
+                      <div class = "postDesc col-xs-12 col-sm-12 col-md-12">
+                        <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
+                        <div class = "hidden-xs hidden-sm">
                           <p><b:if cond='data:post.snippet'><data:post.snippet/></b:if></p>
-                          <b:if cond='data:post.labels'>
-                            <span class='label' style="color: #2196F3"><data:postLabelsLabel/></span>
-                            <b:loop values='data:post.labels' var='label'>
-                              <a class='label label-info' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
-                            </b:loop>
-                            <br/>
-                          </b:if>
-                          <span class='timestamp'><data:post.timestamp/></span>
-                          <span class='timestamp'>Posted by <data:post.author/></span>
-                          <!-- <div class='scissorstable'>
-                            <span class='beforescissors'/>
-                            <span class='fa fa-cut'/>
-                            <span class='afterscissors'/>
-                          </div> -->
                         </div>
-                        <b:else />
-                        <div class = "postDesc col-xs-12 col-sm-12 col-md-12">
-                          <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
-                          <p><b:if cond='data:post.snippet'><data:post.snippet/></b:if></p>
-                          <b:if cond='data:post.labels'>
-                            <span class='label' style="color: #2196F3"><data:postLabelsLabel/></span>
-                            <b:loop values='data:post.labels' var='label'>
-                              <a class='label label-info' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
-                            </b:loop>
-                            <br/>
-                          </b:if>
-                          <span class='timestamp'><data:post.timestamp/></span>
-                          <span class='timestamp'>Posted by <data:post.author/></span>
-                          <!-- <div class='scissorstable'>
-                            <span class='beforescissors'/>
-                            <span class='fa fa-cut'/>
-                            <span class='afterscissors'/>
-                          </div> -->
-                        </div>
-                      </b:if>
+                        <b:if cond='data:post.labels'>
+                          <span class='label' style="color: #2196F3"><data:postLabelsLabel/></span>
+                          <b:loop values='data:post.labels' var='label'>
+                            <a class='label label-info' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
+                          </b:loop>
+                          <br/>
+                        </b:if>
+                        <span class='timestamp'><data:post.timestamp/></span>
+                        <span class='timestamp'>Posted by <data:post.author/></span>
+                      </div>
                     </div>
                   </b:loop>
-				  <div class='row'>
-					<div class='col-xs-6'>
+                  <!-- Page End Buttons -->
+                  <div class='row'>
+                    <div class='col-xs-6'>
                       <b:if cond='data:olderPageTitle'>
                         <span class='fa fa-arrow-circle-o-left'/><a expr:href='data:olderPageUrl'> Older entries</a>
                       </b:if>
-        		    </div>
-					<div class='col-xs-6'>
-						<div class='pull-right'>
+                    </div>
+                    <div class='col-xs-6'>
+                      <div class='pull-right'>
                         <b:if cond='data:newerPageTitle'>
                           <a expr:href='data:newerPageUrl'>Newer entries </a><span class='fa fa-arrow-circle-o-right'/>
                         </b:if>
-						</div>
+                      </div>
                     </div>
                   </div>
                 </b:includable>
@@ -458,7 +421,7 @@
         </div>
         <div class="navbar-fixed-bottom blogFooter">
           <div class='row footer'>
-            All rights reserved. Yes, every one of them!!
+            Built by Ajay Kavuri. Based on Responsiraptor.
           </div>
         </div>
       </div>
