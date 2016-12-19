@@ -93,7 +93,7 @@
     }
     body {
     font-weight: 100;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.5;
     font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;
     color: #494e55;
@@ -266,13 +266,11 @@
     }
     .postHeader{
     color: #2196F3;
-    margin-top: -0px;
-    margin-bottom: 20px;
+    margin-top: 20px;
     text-align: center;
     word-wrap: break-word;
     }
     .pstHdrLne {
-    font-weight: bold;
     font-size: 48px;
     }
     img{
@@ -281,6 +279,14 @@
     }
     .postDesc {
     word-wrap: break-word;
+    }
+    i.fa {
+    color: #FFF;
+    font-size: 24px;
+    }
+    .icon {
+    float: right;
+    padding-right: 10px;
     }
   </style>
   </head>
@@ -354,10 +360,8 @@
                 <b:includable id='post' var='post'>
                   <b:loop values='data:posts' var='post'>
                     <div class="container-fluid postHeader">
-                        <div class="jumbotron">
-                          <h2 class="pstHdrLne"><a expr:href='data:post.url'><data:post.title/></a></h2>
-                        </div>
-                      </div>
+                      <h3 class="pstHdrLne"><a expr:href='data:post.url'><data:post.title/></a></h3>
+                    </div>
                       <hr/>
                       <p><data:post.body/></p>
                       <div class='disqus_thread' id='disqus_thread'/>
@@ -386,7 +390,7 @@
                     <div class="postCard col-xs-12 col-sm-12 col-md-12">
                       <!-- Post Contents -->
                       <div class = "postDesc col-xs-12 col-sm-12 col-md-12">
-                        <h1><a expr:href='data:post.url'><data:post.title/></a></h1>
+                        <h3><a expr:href='data:post.url'><data:post.title/></a></h3>
                         <div class = "hidden-xs hidden-sm">
                           <p><b:if cond='data:post.snippet'><data:post.snippet/></b:if></p>
                         </div>
@@ -397,8 +401,10 @@
                           </b:loop>
                           <br/>
                         </b:if>
-                        <span class='timestamp'><data:post.timestamp/></span>
-                        <span class='timestamp'>Posted by <data:post.author/></span>
+                        <div class = "hidden-xs hidden-sm">
+                          <span class='timestamp'><data:post.timestamp/></span>
+                          <span class='timestamp'>Posted by <data:post.author/></span>
+                        </div>
                       </div>
                     </div>
                   </b:loop>
@@ -434,7 +440,15 @@
                 Built by Ajay Kavuri. Based on Responsiraptor.
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6 social">
-
+                <div class="icon">
+                  <a href="https://github.com/pseudoaj"><i class="fa fa-github"></i></a>
+                </div>
+                <div class="icon">
+                  <a href="https://www.linkedin.com/in/pseudoaj"><i class="fa fa-linkedin"></i></a>
+                </div>
+                <div class="icon">
+                  <a href="http://stackoverflow.com/story/pseudoaj"><i class="fa fa-stack-exchange"></i></a>
+                </div>
               </div>
             </div>
           </div>
